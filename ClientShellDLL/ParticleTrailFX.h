@@ -13,7 +13,6 @@
 
 #include "SpecialFX.h"
 
-
 struct PTCREATESTRUCT : public SFXCREATESTRUCT
 {
 	PTCREATESTRUCT::PTCREATESTRUCT();

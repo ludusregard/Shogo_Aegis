@@ -495,7 +495,7 @@ void BodyProp::CreateGibs()
 
 
 	// If we are gibbing a MCA or Vehicle, create an explosion...
-
+	//AEGIS - Those explosions will no longer damage you! Woo! Now you can play just a bit more aggressively.
 	DBOOL bCreateExplosion = DFALSE;
 
 	switch (GetModelType(m_nModelId, m_eSize))
@@ -505,7 +505,7 @@ void BodyProp::CreateGibs()
 			if (m_eDamageType != DT_MELEE)
 			{
 				bCreateExplosion = DTRUE;
-				m_fDamageFactor  = 1.0f;
+				m_fDamageFactor  = 0.0f;
 			}
 		}
 		break;
@@ -513,7 +513,7 @@ void BodyProp::CreateGibs()
 		case MT_VEHICLE:
 		{
 			bCreateExplosion = DTRUE;
-			m_fDamageFactor  = 0.25f;
+			m_fDamageFactor  = 0.0f;
 		}
 		break;
 

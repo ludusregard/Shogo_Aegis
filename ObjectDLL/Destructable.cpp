@@ -30,7 +30,8 @@
 #define MAXIMUM_FRICTION		15.0f		
 #define MINIMUM_FORCE			0.0f
 
-#define CRITICAL_HIT_CHANCE			0.05f	// Percentage of time critical hits happen
+//AEGIS - originally crits had a 5% chance of happening, not anymore! It is now 0%, bye bye crits, we hardly missed ye.
+#define CRITICAL_HIT_CHANCE			0.00f	// Percentage of time critical hits happen
 #define CRITICAL_HIT_RATIO			4.0f	// 4 times as much damage
 #define CRITICAL_HIT_HEALTH_BONUS	.25f	// Percentage of health bonus
 
@@ -642,8 +643,9 @@ void CDestructable::HandleDamage(LPBASECLASS pObject, HOBJECT hSender, HMESSAGER
 	{
 		// Stole this armor calculation from Blood...
 		// Absorb between 1/4 and 7/8 of damage
-		DFLOAT fMaxAbsorb = fDamage*0.875f;
-		DFLOAT fMinAbsorb = fDamage*0.25f;
+		//AEGIS - In order to make armor much more useful, this has been modified to between 1/2 and 3/4 of damage.
+		DFLOAT fMaxAbsorb = fDamage*0.75f;
+		DFLOAT fMinAbsorb = fDamage*0.50f;
 
 		fAbsorb = fMinAbsorb + (m_fArmorPoints * ((fMaxAbsorb - fMinAbsorb) / GetMaxArmorPoints())); 
 		if (fAbsorb > m_fArmorPoints) fAbsorb = m_fArmorPoints;

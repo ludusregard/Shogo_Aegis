@@ -1,0 +1,59 @@
+Before clean slate:
+-Made menu text blue
+-Made HUD blue
+-Changed Bullgut, Juggernaut, Laser Cannon, Pulse Rifle and Spider NPC firerates to be closer to the player counterparts
+-Toned down Shredder NPC firerate
+-Made Shotgun fire faster
+-Gave the Shotgun a reload
+-Changed Staying Alive to Bloat from Blood 2
+-Changed menu sounds into samples from Suck by Nine Inch Nails (Pigface cover).
+-Changed menu background into Cronian flag
+
+GOALS:
+
+Gameplay:
+-start game at 02_Quarters X
+-remove critical hits X
+-lethal headshots for humans X
+-non-lethal MCA and vehicle explosions X
+-increase armor absorbtion X
+-rebalance weapons:
+o make all explosive weapons projectiles X
+o Make Machine Gun less accurate X
+o Make Bullgut have 1.5x the damage of the Juggernaut when all the projectile are put together
+o make Shotgun fire faster, add reload with 8 shells in the feed X
+o Assault Rifle is three shot burst all the time
+o Pistols gets two magazines upon pick-up
+o Machine Gun gets half a magazine
+o Assault Rifle gets nine rounds
+-scope zoom using right click
+-AI:
+o make AI approach while with a projectile weapon if they are aggressive
+o enhance AI MCA-projectile accuracy
+o make enemy MCA have less of a chance of recoiling
+o when they spot you they will now play dialogue that corresponds to their current state
+o change NPC health
+o change Bullgut, Juggernaut, Pulse Rifle, Shredder and Spider NPC firerates to be closer to the player counterparts
+o have Pistols magazine be halved since its just one gun
+o custom fire times
+o reaction times X
+-MCAs:
+o 
+-Difficulty overhaul:
+o Enemy recoil based on difficulty X
+Presentation:
+-give menu and HUD text a blue color scheme X
+-give menu sounds lifted from Suck by Nine Inch Nails X
+-change Staying Alive to Bloat from Blood 2 X
+-recolor blood splats to be less cheesy, borrow coloring from Elfen Lied (or some other gory anime)
+
+EXPERIMENTAL:
+
+Gameplay:
+-AI:
+o less recoiling of MCAs
+Presentation:
+-add an Aegis control panel
+o add option for pink blood
+o add option for "enhanced" smoke effects
+o add option for extended lifetime of props like shells

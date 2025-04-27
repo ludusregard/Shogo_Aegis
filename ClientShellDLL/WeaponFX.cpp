@@ -1422,54 +1422,7 @@ void CWeaponFX::CreateBeamFX()
 
 	switch (m_nWeaponId)
 	{
-		case GUN_REDRIOT_ID :
-		{
-			switch (nVal)
-			{
-				case RS_LOW:
-				break;
-
-				case RS_MED:
-				case RS_HIGH:
-				default :
-					CreateRedRiotBeam();
-				break;
-			}
-		}
-		break;
-
-		case GUN_JUGGERNAUT_ID:
-		{
-			switch (nVal)
-			{
-				case RS_LOW:
-				break;
-
-				case RS_MED:
-				case RS_HIGH:
-				default :
-					CreateJuggernautBeam();
-				break;
-			}
-		}
-		break;
-
-		case GUN_SHREDDER_ID :
-		{
-			switch (nVal)
-			{
-				case RS_LOW:
-				break;
-
-				case RS_MED:
-				case RS_HIGH:
-				default :
-					CreateShredderBeam();
-				break;
-			}
-		}
-		break;
-
+//AEGIS - Beam effects for the Juggernaut, Shredder and Red Riot have been removed.
 		case GUN_LASERCANNON_ID :
 		{
 			switch (nVal)

@@ -34,8 +34,10 @@ CRedRiotProjectile::CRedRiotProjectile() : CProjectile()
 {
 	m_fExplosionDuration	= 2.0f;
 	m_eDamageType			= DT_EXPLODE;
-	m_pProjectileFilename	= "Models\\PV_Weapons\\RedRiot_projectile.abc";
-	m_pProjectileSkin		= "Skins\\Weapons\\RedRiot_Projectile_a.dtx";
+	//AEGIS - Replaced Red Riot hitscan beam with Kato Grenade sprite
+	m_pProjectileFilename	= "Sprites\\grenade2.spr";
+
+	VEC_SET(m_vDims, 10.0f, 10.0f, 10.0f);
 }
 
 
@@ -130,8 +132,32 @@ CJuggernautProjectile::CJuggernautProjectile() : CProjectile()
 {
 	m_fExplosionDuration	= 1.0f;
 	m_eDamageType			= DT_EXPLODE;
-	m_pProjectileFilename	= "Models\\PV_Weapons\\Bullgut_Projectile.abc";
-	m_pProjectileSkin		= "Skins\\Weapons\\Bullgut_Projectile_a.dtx";
+	//AEGIS - Added a new skin for the Cronus planet prop for the Juggernaut projectile.
+	m_pProjectileFilename	= "Models\\Props\\Cronus.abc";
+	m_pProjectileSkin		= "Skins\\Weapons\\JUGGERNAUT_PROJECTILE_A.dtx";
+	VEC_SET(m_vScale, 0.5f, 0.5f, 0.5f);
+}
+
+//AEGIS - Added a new routine for Shredder projectiles
+BEGIN_CLASS(CShredderProjectile)
+END_CLASS_DEFAULT_FLAGS(CShredderProjectile, CProjectile, NULL, NULL, CF_HIDDEN)
+
+// ----------------------------------------------------------------------- //
+//
+//	ROUTINE:	CShredderProjectile::CShredderProjectile
+//
+//	PURPOSE:	Constructor
+//
+// ----------------------------------------------------------------------- //
+
+CShredderProjectile::CShredderProjectile() : CProjectile()
+{
+	m_fExplosionDuration	= 1.0f;
+	m_eDamageType			= DT_EXPLODE;
+	//AEGIS - New Shredder projectile
+	m_pProjectileFilename	= "Sprites\\Shredder.spr";
+	VEC_SET(m_vDims, 1.0f, 1.0f, 1.0f);
+	VEC_SET(m_vScale, 0.15f, 0.15f, 1.0f);
 }
 
 BEGIN_CLASS(CTOWProjectile)

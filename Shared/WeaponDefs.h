@@ -134,14 +134,14 @@ inline ProjectileType GetWeaponType(RiotWeaponId nWeaponId)
 		case GUN_ENERGYGRENADE_ID :
 		case GUN_KATOGRENADE_ID :
 		case GUN_TOW_ID	:
+		//AEGIS - Now all hitscan explosive weapons are projectiles. Projectile velocity
+		//and lifetime are modified accordingly.
+		case GUN_JUGGERNAUT_ID :
+		case GUN_SHREDDER_ID :
+		case GUN_REDRIOT_ID :
 			eType = PROJECTILE;
 		break;
 
-		case GUN_REDRIOT_ID :
-		case GUN_SHREDDER_ID :
-		case GUN_JUGGERNAUT_ID :
-			eType = CANNON;
-		break;
 
 		case GUN_ENERGYBATON_ID :
 		case GUN_ENERGYBLADE_ID :
@@ -878,10 +878,10 @@ inline DBYTE GetProjectileFX(int nWeaponId)
 		/*GUN_SPIDER_ID*/			PFX_FLYSOUND,
 		/*GUN_BULLGUT_ID*/			PFX_FLYSOUND | PFX_SMOKETRAIL | PFX_FLARE | PFX_LIGHT,
 		/*GUN_SNIPERRIFLE_ID*/		0,
-		/*GUN_JUGGERNAUT_ID*/		0,	
-		/*GUN_SHREDDER_ID*/			0,
+		/*GUN_JUGGERNAUT_ID*/		PFX_LIGHT | PFX_SMOKETRAIL,	
+		/*GUN_SHREDDER_ID*/			PFX_LIGHT,
 		/*NOT USED1*/				0,
-		/*GUN_REDRIOT_ID*/			0,
+		/*GUN_REDRIOT_ID*/			PFX_LIGHT,
 		/*GUN_ENERGYBATON_ID*/		0,
 		/*GUN_ENERGYBLADE_ID*/		0,
 		/*GUN_KATANA_ID*/			0,
@@ -1734,7 +1734,8 @@ inline int GetShotsPerClip(int nWeaponId)
 		/*GUN_KATANA_ID*/			-1,
 		/*GUN_MONOKNIFE_ID*/		-1,
 		/*GUN_COLT45_ID*/			22,
-		/*GUN_SHOTGUN_ID*/			1,
+		//AEGIS - Reloading on the shotgun, 8 shells in the feed. Awkward, yes. Functional, yes.
+		/*GUN_SHOTGUN_ID*/			8,
 		/*GUN_ASSAULTRIFLE_ID*/		50,
 		/*GUN_ENERGYGRENADE_ID*/	6,
 		/*GUN_KATOGRENADE_ID*/		1,
@@ -1793,7 +1794,8 @@ inline DBYTE GetWeaponPerturbe(int nWeaponId, DFLOAT & fRPerturbe,
 		/*GUN_ASSAULTRIFLE_ID*/		5,
 		/*GUN_ENERGYGRENADE_ID*/	10,
 		/*GUN_KATOGRENADE_ID*/		10,
-		/*GUN_MAC10_ID*/			40,
+		//AEGIS - Originally 40
+		/*GUN_MAC10_ID*/			60,
 		/*GUN_TOW_ID*/				0,
 		/*NOT USED2*/				0,
 		/*GUN_SQUEAKYTOY_ID*/		0,
@@ -1895,10 +1897,10 @@ inline DFLOAT GetWeaponVelocity(int nWeaponId)
 		/*GUN_SPIDER_ID*/			800.0f,
 		/*GUN_BULLGUT_ID*/			1000.0f,
 		/*GUN_SNIPERRIFLE_ID*/		0.0f,
-		/*GUN_JUGGERNAUT_ID*/		0.0f,	
-		/*GUN_SHREDDER_ID*/			0.0f,
+		/*GUN_JUGGERNAUT_ID*/		2500.0f,	
+		/*GUN_SHREDDER_ID*/			2500.0f,
 		/*NOT USED1*/				0.0f,
-		/*GUN_REDRIOT_ID*/			0.0f,
+		/*GUN_REDRIOT_ID*/			800.0f,
 		/*GUN_ENERGYBATON_ID*/		0.0f,
 		/*GUN_ENERGYBLADE_ID*/		0.0f,
 		/*GUN_KATANA_ID*/			0.0f,
@@ -1932,10 +1934,10 @@ inline DFLOAT GetWeaponLifeTime(int nWeaponId)
 		/*GUN_SPIDER_ID*/			3.0f,
 		/*GUN_BULLGUT_ID*/			6.0f,
 		/*GUN_SNIPERRIFLE_ID*/		0.0f,
-		/*GUN_JUGGERNAUT_ID*/		0.0f,	
-		/*GUN_SHREDDER_ID*/			0.0f,
+		/*GUN_JUGGERNAUT_ID*/		4.0f,	
+		/*GUN_SHREDDER_ID*/			4.0f,
 		/*NOT USED1*/				0.0f,
-		/*GUN_REDRIOT_ID*/			0.0f,
+		/*GUN_REDRIOT_ID*/			10.0f,
 		/*GUN_ENERGYBATON_ID*/		0.0f,
 		/*GUN_ENERGYBLADE_ID*/		0.0f,
 		/*GUN_KATANA_ID*/			0.0f,

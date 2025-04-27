@@ -34,6 +34,12 @@ class CJuggernautProjectile : public CProjectile
 		CJuggernautProjectile();
 };
 
+class CShredderProjectile : public CProjectile
+{
+	public :
+		CShredderProjectile();
+};
+
 class CBullgutProjectile : public CProjectile
 {
 	public :

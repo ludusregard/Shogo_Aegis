@@ -357,6 +357,9 @@ class BaseAI : public CBaseCharacter
 	
 		DFLOAT		m_fRecomputeTime;		// The earliest we can recompute our state
 		DFLOAT		m_fNextBumpedTime;		// Next time we can get bumped
+		DFLOAT      m_fReactionTime; //AEGIS - Let down by "the man"? That man being the lack of
+													 //reaction times for Shogo's AI? Never fear again! This provides a
+													//subtle delay between an NPC spotting you and it firing.
 
 		DVector		m_vRight;				// Object's right vector
 		DVector		m_vUp;					// Object's up vector

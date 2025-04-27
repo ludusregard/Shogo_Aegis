@@ -89,8 +89,6 @@ DBOOL CProjectileFX::CreateObject(CClientDE* pClientDE)
 		m_pClientDE->GetLocalClientID(&dwId);
 		if ((DBYTE)dwId == m_nShooterId && !m_bLocal) 
 		{
-			// Of course there are always special cases...
-
 			if (m_nWeaponId != GUN_KATOGRENADE_ID && m_nWeaponId != GUN_SPIDER_ID) 
 			{
 				return DFALSE;
@@ -389,10 +387,33 @@ void CProjectileFX::CreateProjectile(DVector & vPos, DRotation & rRot)
 			pModelSkin = "Skins\\Weapons\\Bullgut_Projectile_a.dtx";
 		}
 		break;
+		//AEGIS - Red Riot now has the Kato Grenade projectile
+		case GUN_REDRIOT_ID:
+		{
+			pSpriteFilename = "Sprites\\grenade2.spr";
+		}
+		break;
 
 		case GUN_ENERGYGRENADE_ID: 
 		{
 			pSpriteFilename = "Sprites\\grenade1.spr";
+		}
+		break;
+
+		//AEGIS - New Shredder projectile
+		case GUN_SHREDDER_ID:
+		{
+			VEC_SET(vScale, 0.15f, 0.15f, 1.0f);
+			pSpriteFilename = "Sprites\\Shredder.spr";
+		}
+		break;
+
+		//AEGIS - New Juggernaut projectile
+		case GUN_JUGGERNAUT_ID:
+		{
+			pModelFilename	= "Models\\Props\\Cronus.abc";
+			pModelSkin		= "Skins\\Weapons\\JUGGERNAUT_PROJECTILE_A.dtx";
+			VEC_SET(vScale, 0.5f, 0.5f, 0.5f);
 		}
 		break;
 
@@ -473,6 +494,7 @@ void CProjectileFX::CreateSmokeTrail(DVector & vPos, DRotation & rRot)
 	pt.hServerObj = m_hServerObject;
 	pt.nType	  = PT_SMOKE;
 	pt.bSmall	  = (m_eSize == MS_SMALL ? DTRUE : DFALSE);
+
 
 	// CSpecialFX* pFX = psfxMgr->CreateSFX(SFX_PARTICLETRAIL_ID, &pt);
 

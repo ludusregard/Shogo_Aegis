@@ -1056,7 +1056,7 @@ DFLOAT CWeapon::GetDamage() const
 	if (!pServerDE || !m_hObject) return fDamage;
 
 	// If we're an AI damage is based on the current difficutly setting...
-
+	//AEGIS - Enemies do the same damage as the player
 	if (IsAI(m_hObject) && g_pRiotServerShellDE)
 	{
 		DFLOAT fDifficultyFactor = 1.0f;
@@ -1064,17 +1064,8 @@ DFLOAT CWeapon::GetDamage() const
 		switch (g_pRiotServerShellDE->GetDifficulty())
 		{
 			case GD_EASY:
-				fDifficultyFactor = 0.5f;
-			break;
-
 			case GD_NORMAL:
-				fDifficultyFactor = 0.75f;
-			break;
-
 			case GD_VERYHARD:
-				fDifficultyFactor = 1.5f;
-			break;
-
 			case GD_HARD:
 			default : 
 			break;

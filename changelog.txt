@@ -1,0 +1,25 @@
+General Gameplay:
+-The campaign now starts at Calm Before The Storm\02_Quarters.
+-Critical hits have been removed.
+-Human headshots now amplify damage by 10 instead of 2.
+-MCA and vehicle explosions no longer do damage.
+-Changed the armor damage absorbtion from between 1/4 and 7/8 to 1/2 and 3/4.
+
+Difficulty system:
+-Enemy flinching is now based on difficulty. (on SUCCUBUS enemy has no flinching)
+
+Weapons:
+-Shotgun now has 8 shells in its feed.
+-Shotgun now has a faster rate of fire
+-Machine Gun now has 50% more inaccuracy.
+-Made all hitscanning explosive weapons projectiles (although I am not able to create a proper transparency map for the Shredder projectile right now)
+
+AI:
+-Added reaction times between spotting and firing for AI.
+
+Presentation:
+-Menu:
+o Gave menu and HUD text a blue color scheme.
+o Gave menu sounds lifted from Suck by Nine Inch Nails.
+-Miscellaneous:
+o Changed the Staying Alive loop to Bloat from Blood 2.

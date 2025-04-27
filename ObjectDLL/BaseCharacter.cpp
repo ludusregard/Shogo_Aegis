@@ -21,7 +21,7 @@
 #include "ModelNodes.h"
 #include "CharacterMgr.h"
 #include "CVarTrack.h"
-
+#include "RiotServerShell.h"
 
 BEGIN_CLASS(CBaseCharacter)
 	ADD_ACTIVATION_AGGREGATE()
@@ -152,8 +152,8 @@ END_CLASS_DEFAULT_FLAGS(CBaseCharacter, BaseClass, NULL, NULL, CF_HIDDEN)
 char g_tokenSpace[PARSE_MAXTOKENS*PARSE_MAXTOKENSIZE];
 char *g_pTokens[PARSE_MAXTOKENS];
 char *g_pCommandPos;
-
-
+//AEGIS -  Reach "g_pRiotServerShellDE" for difficulty functions
+extern CRiotServerShell* g_pRiotServerShellDE;
 
 // ----------------------------------------------------------------------- //
 //
@@ -1799,14 +1799,29 @@ void CBaseCharacter::SetRecoilAnimation()
 	if (!pServerDE || !m_hObject) return;
 
 	HMODELANIM hRecoilAni = GetRecoilAni();
-
-	if (hRecoilAni != INVALID_ANI)
+	//AEGIS - Recoiling ability is now set according to difficulty
+	switch (g_pRiotServerShellDE->GetDifficulty())
 	{
-		m_bAllowMovement = DFALSE;
-		m_bRecoiling	 = DTRUE;
+		case GD_EASY:
+		case GD_NORMAL:
+		case GD_HARD:
+			{
+					if (hRecoilAni != INVALID_ANI)
+			{
+					m_bAllowMovement = DFALSE;
+					m_bRecoiling	 = DTRUE;
 
-		SetAnimation(hRecoilAni, DFALSE);
+					SetAnimation(hRecoilAni, DFALSE);
+			}
+			}
+		break;
+		case GD_VERYHARD:
+			{
+					return;
+			}
+		break;
 	}
+
 }
 
 // ----------------------------------------------------------------------- //

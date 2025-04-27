@@ -86,7 +86,9 @@ CShredder::CShredder() : CWeapon()
 	m_fMinFireRest		= 5.0f;
 	m_fMaxFireRest		= 10.0f;
 }
-
+//AEGIS - Changed the Shredder projectile creation routine so that
+//it refers to a unique projectile routine for the Shredder rather than the one
+//for the Juggernaut
 // ----------------------------------------------------------------------- //
 //
 //	ROUTINE:	CJuggernaut::CreateProjectile
@@ -103,7 +105,7 @@ CProjectile* CShredder::CreateProjectile(ObjectCreateStruct & theStruct)
 
 	if (pServerDE)
 	{
-		HCLASS hClass = pServerDE->GetClass("CJuggernautProjectile");
+		HCLASS hClass = pServerDE->GetClass("CShredderProjectile");
 
 		if (hClass)
 		{

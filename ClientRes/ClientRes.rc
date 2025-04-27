@@ -892,10 +892,10 @@ BEGIN
     IDS_JOY_BUTTON8         "button 8"
     IDS_JOY_BUTTON9         "button 9"
     IDS_JOY_BUTTON10        "button 10"
-    IDS_NEW_EASY            "easy"
-    IDS_NEW_MEDIUM          "normal"
-    IDS_NEW_HARD            "hard"
-    IDS_NEW_INSANE          "MADNESS"
+    IDS_NEW_EASY            "gyaru"
+    IDS_NEW_MEDIUM          "tsundere"
+    IDS_NEW_HARD            "tomboy"
+    IDS_NEW_INSANE          "SUCCUBUS"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -1239,7 +1239,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_BUMPERSCREEN_01     "A UCA reconnaissance mission in the abandoned city of Avernus has gone disastrously awry. Enemy forces have come swarming out of the access tunnels, and Fallen dropships have deposited MCA squads in the path of your retreat. You must fall back to Drop Point Renegade for immediate extraction before the UCA begins its carpet bombing runs from high orbit. A dropship is en route, but it can't stay long. You and your squad mates will have a limited window of opportunity. Don't miss it."
-    IDS_BUMPERSCREEN_02     "Back aboard the UCASF Flagship Leviathan, you and Kathryn find a few precious moments of peace before you must prepare for the mission ahead. From space, Cronus seems tranquil and remote, but it has always defeated you before and the odds have never been so grim. Enjoy the brief respite, for it won't last long."
+    IDS_BUMPERSCREEN_02     "Aboard the UCASF Flagship Leviathan, you and Kathryn find a few precious moments of peace before you must prepare for the mission ahead. From space, Cronus seems tranquil and remote, but it has always defeated you before and the odds have never been so grim. Enjoy the brief respite, for it won't last long."
     IDS_BUMPERSCREEN_03     "Admiral Akkaraju was always like a father to you, but since the loss of Kura, Toshiro, and Baku, he has grown increasingly distant and preoccupied. His determination to defeat the Fallen borders on obsession, as though by crushing them he can somehow restore what he has lost. It is no secret that your mission was ordered by UCA High Command and that the Admiral's personal wish was to employ the Leviathan's kato cannon to eradicate the Fallen, despite the consequences."
     IDS_BUMPERSCREEN_04     "Admiral Akkaraju was always like a father to you, but since the loss of Kura, Toshiro, and Baku, he has grown increasingly distant and preoccupied. His determination to defeat the Fallen borders on obsession, as though by crushing them he can somehow restore what he has lost. It is no secret that your mission was ordered by UCA High Command and that the Admiral's personal wish was to employ the Leviathan's kato cannon to eradicate the Fallen, despite the consequences. He is also more easily stirred to anger by your inevitable tardiness..."
     IDS_BUMPERSCREEN_05     "LZ Minotaur places you 15 klicks SE of an access road leading into Avernus. The entrance is poorly defended, but you should still expect moderate resistance. Larger diversionary strike forces are harrying Fallen defenses further to the north and east to tie up possible reinforcements. Protect your squad mates. Their added firepower will prove useful when you reach the perimeter wall, where you'll encounter the heaviest concentration of defenders."

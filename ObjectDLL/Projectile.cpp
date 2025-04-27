@@ -1355,9 +1355,21 @@ void CProjectile::AdjustDamage(CBaseCharacter* pChar, DDWORD nNode)
 
 	switch (pChar->GetNodeType(nNode))
 	{
+		//AEGIS - originally headshots gave you two times the damage, but this isn't totally effective all the time, so I kicked it up by amplifying damage by ten now.
+		//for MCAs, it stays the same.
+
 		case NT_HEAD:
+			if (pChar->IsMecha())
+			{
 			fAdjustVal = 2.0f;
-		break;
+			break;
+			}
+			else
+			{
+			fAdjustVal = 10.0f;
+			break;
+			}
+
 
 		case NT_LARM:
 		case NT_RARM:

@@ -282,6 +282,7 @@ BaseAI::BaseAI() : CBaseCharacter()
 	m_fFireStartTime			= 0.0f;
 	m_fFireStopTime				= 0.0f;
 	m_fNextBumpedTime			= 0.0f;
+	m_fReactionTime = 0.0f;
 
 	m_bRecompute				= DFALSE;
 	m_eLastTurnDir				= NONE;
@@ -3976,18 +3977,23 @@ DBOOL BaseAI::ShootTarget()
 	CWeapon* pWeapon = m_weapons.GetCurWeapon();
 	if (!pWeapon) return DFALSE;
 
-	if (m_fCurTime < m_fFireStopTime)  // We're firing...
+	//AEGIS - If the active current time is greater than the static reaction time, the NPC can now fire.
+	//Hooray, Shogo now has actual reaction times for AI. Go wild.
+	if (m_fCurTime > m_fReactionTime)
 	{
-		SetActionFlag(AI_AFLG_FIRE);
-		return DTRUE;
-	}
-	else if (m_fCurTime > m_fFireStartTime) // We just got done resting...
-	{
-		m_fFireStopTime = (m_fCurTime + GetRandom(pWeapon->GetMinFireDuration(), pWeapon->GetMaxFireDuration()));
+		if (m_fCurTime < m_fFireStopTime)  // We're firing...
+		{
+			SetActionFlag(AI_AFLG_FIRE);
+			return DTRUE;
+		}
+		else if (m_fCurTime > m_fFireStartTime) // We just got done resting...
+		{
+			m_fFireStopTime = (m_fCurTime + GetRandom(pWeapon->GetMinFireDuration(), pWeapon->GetMaxFireDuration()));
 
-		m_fFireStartTime = (m_fFireStopTime + GetRandom(pWeapon->GetMinFireRest() * m_fFireRestAdjust,
+			m_fFireStartTime = (m_fFireStopTime + GetRandom(pWeapon->GetMinFireRest() * m_fFireRestAdjust,
 													    pWeapon->GetMinFireRest() * m_fFireRestAdjust));
-		return DTRUE;
+			return DTRUE;
+		}
 	}
 
 	return DFALSE;
@@ -5678,6 +5684,10 @@ void BaseAI::SpotPlayer(HOBJECT hObj)
 
 		m_bSpottedPlayer = DTRUE;
 		m_bLostPlayer	 = DFALSE;
+		//AEGIS - Because these commands for the "SpotPlayer" function are only applied once, we can 
+		//make it so that it is the sum of the current game time and a given value
+		//and is easily comparable to the active current time used in the "ShootTarget" function.
+		m_fReactionTime = (m_fCurTime + 0.5f);
 	}
 }
 
@@ -6186,21 +6196,12 @@ void BaseAI::AdjustMarksmanshipPerturb()
 	if (!g_pRiotServerShellDE) return;
 
 	int nVal = m_eMarksmanship;
-
+	//AEGIS - AI has same marksmanship as mapped in the level
 	switch (g_pRiotServerShellDE->GetDifficulty())
 	{
 		case GD_EASY:
-			nVal += 3;
-		break;
-
 		case GD_NORMAL:
-			nVal += 1;
-		break;
-
 		case GD_VERYHARD:
-			nVal -= 3;
-		break;
-
 		case GD_HARD:
 		default :
 			return;
@@ -6228,21 +6229,12 @@ void BaseAI::AdjustEvasiveDelay()
 	if (!g_pRiotServerShellDE) return;
 
 	int nVal = m_eEvasive;
-
+	//AEGIS - AI has evasive stat as mapped no matter the difficulty
 	switch (g_pRiotServerShellDE->GetDifficulty())
 	{
 		case GD_EASY:
-			nVal += 4;
-		break;
-
 		case GD_NORMAL:
-			nVal += 2;
-		break;
-
 		case GD_VERYHARD:
-			nVal -= 2;
-		break;
-
 		case GD_HARD:
 		default :
 			return;
@@ -6270,24 +6262,13 @@ void BaseAI::AdjustFireDelay()
 
 	switch (g_pRiotServerShellDE->GetDifficulty())
 	{
+//AEGIS - All difficulties have the same fire delay adjustment
 		case GD_EASY:
-			m_nMaxCheeseCount = (DBYTE)(AI_DEFAULT_MAX_CHEESE_COUNT * 2.0f);
-			m_fFireRestAdjust = 2.0f;
-		break;
-
 		case GD_NORMAL:
-			m_nMaxCheeseCount = (DBYTE)(AI_DEFAULT_MAX_CHEESE_COUNT * 1.5f);
-			m_fFireRestAdjust = 1.5f;
-		break;
-
 		case GD_VERYHARD:
-			m_nMaxCheeseCount = 1;
-			m_fFireRestAdjust = 0.5f;
-		break;
-
 		case GD_HARD:
 		default :
-			m_nMaxCheeseCount = (DBYTE)AI_DEFAULT_MAX_CHEESE_COUNT;
+			m_nMaxCheeseCount = (DBYTE)(AI_DEFAULT_MAX_CHEESE_COUNT * 9999.0f);
 			m_fFireRestAdjust = 1.0f;
 		break;
 	}
@@ -6307,22 +6288,13 @@ void BaseAI::AdjustFireDelay()
 void BaseAI::AdjustDamageAggregate()
 {
 	if (!g_pRiotServerShellDE) return;
-
+	//AEGIS - Difficulty factors now have the same hit points
 	DFLOAT fFactor = 1.0f;
 	switch (g_pRiotServerShellDE->GetDifficulty())
 	{
 		case GD_EASY:
-			fFactor = 0.25f;
-		break;
-
 		case GD_NORMAL:
-			fFactor = 0.5f;
-		break;
-
 		case GD_VERYHARD:
-			fFactor = 1.5f;
-		break;
-
 		case GD_HARD:
 		default : 
 			return;	

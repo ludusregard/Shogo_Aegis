@@ -33,7 +33,6 @@ DBOOL CParticleTrailFX::Init(SFXCREATESTRUCT* psfxCreateStruct)
 	PTCREATESTRUCT* pST = (PTCREATESTRUCT*)psfxCreateStruct;
 	m_nType  = pST->nType;
 	m_bSmall = pST->bSmall;
-	
 	if (m_nType & PT_BLOOD)
 	{
 		VEC_SET(m_vDriftOffset, 60.0f, 60.0f, 60.0f);

@@ -9351,8 +9351,10 @@ void CRiotClientShell::DoStartGame()
 	CreateBumperScreen("Demo", 1606);
 	LoadWorld("Worlds\\demo_mca");
 #else
-	CreateBumperScreen("Ambush", 1600);
-	LoadWorld("Worlds\\01_Ambush");
+	//AEGIS - originally the campaign started at Ambush\01_Ambush, but since it is irrelevant to the campaign after it starts a level forward.
+	//Bumper screen text was changed accordingly.
+	CreateBumperScreen("Calm Before The Storm", 1601);
+	LoadWorld("Worlds\\02_Quarters");
 #endif
 }
 
